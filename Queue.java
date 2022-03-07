@@ -42,43 +42,69 @@ Constraints:
 
 import java.util.*;
 
-class Queue
-{
+class Queue {
 
-    ArrayList <Integer> queue;
-	Queue() {
+    ArrayList<Integer> queue;
 
+    Queue() {
 
-	}
+        this.queue = new ArrayList<Integer>();
+    }
 
-	
+    int dequeue() {
+    if(queue.isEmpty()){
+        return 9999;
+    }else{
+        int first=queue.get(0);
+      int [] k= {first};
+      //  int returnValue=first*1;
+           queue.remove(0);
+   
+           return k[0];
+    }
 
-	int dequeue() {
-        return 0;
+    }
 
-	}
+    void enqueue(int val) {
+        queue.add(val);
 
-	void enqueue(int val) {
+    }
 
-	}
+    /* Return the last element in the queue */
+    int peek() {
+      
+        if (queue.size()>=1){
+           return queue.get(0);
+       }else{
+           return 9999;
+       }
+       
 
-	int peek() {
-        return 0;
+    }
 
-	}
+    /* Returns The Size Of The Queue */
+    int size() {
+        return queue.size();
 
-	int size() {
-        return 0;
+    }
 
-	}
+    boolean isEmpty() {
+        if (queue.size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
 
-	boolean isEmpty() {
-        return false;
+    }
 
-
-	}
-    //Main Method
+    // Main Method
     public static void main(String[] args) {
-        
+        Queue s = new Queue();
+        s.enqueue(5);
+    s.enqueue(10);
+       s.dequeue();
+       System.out.println("Peek: "+s.peek());
+        System.out.println("removed "+s.dequeue());
+
     }
 };
